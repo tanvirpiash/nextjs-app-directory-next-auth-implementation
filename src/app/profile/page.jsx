@@ -5,12 +5,6 @@ import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import { cache, use } from 'react';
 
-type User = {
-   id: number;
-   name: string;
-   email: string;
-};
-
 const getUsers = cache(() => fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json()));
 
 export default function Profile() {
@@ -25,7 +19,7 @@ export default function Profile() {
       return <p>Loading....</p>;
    }
 
-   let users = use<User[]>(getUsers());
+   let users = use(getUsers());
 
    return (
       <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>

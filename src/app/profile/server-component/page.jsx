@@ -3,12 +3,6 @@ import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 
-type User = {
-   id: number;
-   name: string;
-   email: string;
-};
-
 export default async function Profile() {
    const session = await getServerSession(authOptions);
 
@@ -16,7 +10,7 @@ export default async function Profile() {
       redirect('/api/auth/signin');
    }
 
-   const users: User[] = await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
+   const users = await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
 
    return (
       <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
