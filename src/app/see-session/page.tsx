@@ -1,5 +1,4 @@
 import { LoginButton, LogoutButton, ProfileButton, RegisterButton } from '@/components/buttons.component';
-import { User } from '@/components/user.component';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 
@@ -23,8 +22,6 @@ export default async function Home() {
 
             <h1>Server Session</h1>
             <pre>{JSON.stringify(session)}</pre>
-
-            <User />
          </div>
       </main>
    );
